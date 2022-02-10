@@ -1,0 +1,22 @@
+package vendor.sprd.hardware.face@1.0;
+
+import android.hardware.biometrics.face@1.0;
+
+interface IExtBiometricsFaceClientCallback extends android.hardware.biometrics.face@1.0::IBiometricsFaceClientCallback {
+    /**
+     * Sent when one enrolling frame processed
+     * @param deviceId A unique id associated with the HAL implementation
+     *     service that processed this authentication attempt.
+     * @param addr the main buffer address
+     */
+    oneway onEnrollProcessed(uint64_t deviceId, int64_t addr);
+
+    /**
+     * Sent when one authenticating frame processed
+     * @param deviceId A unique id associated with the HAL implementation
+     *     service that processed this authentication attempt.
+     * @param main the main buffer address
+     * @param sub the sub buffer address
+     */
+    oneway onAuthProcessed(uint64_t deviceId, int64_t main, int64_t sub);
+};

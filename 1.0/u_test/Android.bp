@@ -1,0 +1,17 @@
+cc_binary {
+    name: "IBiometricsFaceTest",
+    srcs: [
+        "main.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libcutils",
+        "liblog",
+        "libhidlbase",
+        "libhidltransport",
+        "libhwbinder",
+        "libutils",
+        "android.hardware.biometrics.face@1.0",
+        "vendor.sprd.hardware.face@1.0",
+    ],
+}

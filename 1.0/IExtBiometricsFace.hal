@@ -1,0 +1,27 @@
+package vendor.sprd.hardware.face@1.0;
+
+import IExtBiometricsFaceClientCallback;
+import android.hardware.biometrics.face@1.0;
+
+interface IExtBiometricsFace extends android.hardware.biometrics.face@1.0::IBiometricsFace {
+    /*
+     * send face data to enroll algorithm to process
+     *
+     * @return status The status of this method call.
+     */
+    doEnrollProcess(int64_t addr, vec<int32_t> info, vec<int8_t> byteInfo) generates (Status status);
+
+    /*
+     * send face data to authenticate algorithm to process
+     *
+     * @return status The status of this method call.
+     */
+    doAuthenticateProcess(int64_t main, int64_t sub, int64_t otp, vec<int32_t> info, vec<int8_t> byteInfo) generates (Status status);
+
+    /*
+     * update liveness mode prop value on settings changed
+     *
+     * @return status The status of this method call.
+     */
+    updateLivenessMode(int32_t value, int32_t userId) generates (Status status);
+};

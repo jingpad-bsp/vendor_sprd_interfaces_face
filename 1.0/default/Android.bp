@@ -1,0 +1,29 @@
+cc_binary {
+    name: "vendor.sprd.hardware.face@1.0-service",
+    defaults: ["hidl_defaults"],
+    init_rc: ["vendor.sprd.hardware.face@1.0-service.rc"],
+    vintf_fragments: ["manifest_face.xml"],
+    relative_install_path: "hw",
+    vendor: true,
+    srcs: [
+        "ExtBiometricsFace.cpp",
+        "service.cpp",
+    ],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+        "libhidlbase",
+        "libhidltransport",
+        "libhardware",
+        "libutils",
+        "libstagefright_foundation",
+        "android.hardware.biometrics.face@1.0",
+        "vendor.sprd.hardware.face@1.0",
+    ],
+    sanitize: {
+        cfi: true,
+        diag: {
+            cfi: true,
+        },
+    },
+}
